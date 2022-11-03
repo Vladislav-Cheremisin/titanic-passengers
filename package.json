@@ -1,0 +1,27 @@
+{
+  "name": "titanic-passengers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vladislav-Cheremisin/titanic-passengers.git"
+  },
+  "keywords": [
+    "altcraft",
+    "jstask"
+  ],
+  "author": "Vladislav Cheremisin <vladislav@cheremis.in>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vladislav-Cheremisin/titanic-passengers/issues"
+  },
+  "homepage": "https://github.com/Vladislav-Cheremisin/titanic-passengers#readme",
+  "devDependencies": {
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
