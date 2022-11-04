@@ -49,6 +49,10 @@ export default {
           from: path.resolve(__dirname, 'src/public/favicon.ico'),
           to: path.resolve(__dirname, 'dist/public'),
         },
+        {
+          from: path.resolve(__dirname, 'src/assets/search-icon.png'),
+          to: path.resolve(__dirname, 'dist/assets/search-icon.png'),
+        },
       ],
     }),
   ],

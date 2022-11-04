@@ -7,5 +7,32 @@
     <title>Titanic Passengers</title>
     <link rel="shortcut icon" href="./public/favicon.ico" type="image/x-icon" />
   </head>
-  <body></body>
+  <body>
+    <header class="header">
+      <a href="/" class="header__title">Titanic passengers</a>
+    </header>
+    <main class="wrapper">
+      <section class="search-ui">
+        <h2 class="search-ui__title">Welcome to our web application!</h2>
+        <p class="search-ui__text">
+          Here you can find information about people who was on the Titanic in
+          the day when passenger ship was sunk in the north Atlantic ocean.
+        </p>
+        <form action="/" class="searchbar">
+          <input type="text" placeholder="Type your query here..." />
+          <button type="submit">
+            <img
+              class="searchbar__search-icon"
+              src="./assets/search-icon.png"
+              alt="search icon"
+            />
+          </button>
+        </form>
+      </section>
+      <section class="content"></section>
+    </main>
+    <footer class="footer">
+      <div class="footer__logo"></div>
+    </footer>
+  </body>
 </html>
