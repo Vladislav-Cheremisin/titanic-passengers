@@ -1,16 +1,20 @@
 import { createPassenger } from "./createPassenger.js";
 import { loadFirstElements, createLazyLoading } from "./lazyLoading.js";
 
-const contentWrapper = document.querySelector(".content");
+let lazyLoadEvent = null
 
 export const renderContent = (passengers) => {
-  const content = [];
+  let content = [];
 
   passengers.forEach((passenger) => content.push(createPassenger(passenger)))
 
   loadFirstElements(content);
+
+  if (lazyLoadEvent) {
+    window.removeEventListener('scroll', lazyLoadEvent);
+  }
   
-  const lazyLoadEvent = createLazyLoading(content)
+  lazyLoadEvent = createLazyLoading(content)
 
   window.addEventListener('scroll', lazyLoadEvent);
 };

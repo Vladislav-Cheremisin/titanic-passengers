@@ -9,7 +9,9 @@ const updateLazyBlockInfo = () => {
 }
 
 const loadFirstElements = (elements) => {
-    while (windowHeight > (lazyBlockPos + lazyBlockHeight)) {
+  updateLazyBlockInfo();
+
+  while (elements.length && (windowHeight > (lazyBlockPos + lazyBlockHeight))) {
     lazyBlock.innerHTML += elements.shift();
 
     updateLazyBlockInfo()
@@ -21,7 +23,9 @@ const createLazyLoading = (elements) => {
     updateLazyBlockInfo()
 
     if (scrollY + windowHeight > ((lazyBlockPos + lazyBlock.offsetHeight))) {
-      lazyBlock.innerHTML += elements.shift();
+      if (elements.length) {
+        lazyBlock.innerHTML += elements.shift();
+      }
     }
   }
 }

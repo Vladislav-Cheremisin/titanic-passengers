@@ -81,7 +81,7 @@ body {
   min-width: 460px;
 }
 
-.searchbar input {
+.searchbar__input {
   padding: 0 95px 0 30px;
   display: flex;
   width: 100%;
@@ -95,12 +95,12 @@ body {
   transition: border 0.4s ease;
 }
 
-.searchbar input:focus {
+.searchbar__input:focus {
   border: 2px solid #7c4dff9e;
   box-shadow: 0 0 3px #7c4dff9e;
 }
 
-.searchbar button {
+.searchbar__btn {
   position: absolute;
   right: 35px;
   display: flex;
@@ -115,8 +115,8 @@ body {
   background-color: transparent;
 }
 
-.searchbar button:hover {
-  cursor: pointer;
+.searchbar__btn:disabled {
+  cursor: default;
 }
 
 .searchbar__search-icon {
@@ -124,12 +124,6 @@ body {
   width: 26px;
   height: 26px;
   opacity: 0.5;
-  transition: opacity 0.4s ease;
-}
-
-.searchbar__search-icon:hover {
-  display: flex;
-  opacity: 0.8;
 }
 
 .content {
@@ -147,7 +141,7 @@ body {
   grid-template-rows: 1fr 1fr;
   grid-gap: 2px;
   width: 860px;
-  height: 130px;
+  height: fit-content;
   background-color: #bdbdbd;
   border: 2px solid #bdbdbd;
   border-radius: 15px;
