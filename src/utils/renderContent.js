@@ -1,4 +1,5 @@
 import { createPassenger } from "./createPassenger.js";
+import { loadFirstElements, createLazyLoading } from "./lazyLoading.js";
 
 const contentWrapper = document.querySelector(".content");
 
@@ -7,5 +8,9 @@ export const renderContent = (passengers) => {
 
   passengers.forEach((passenger) => content.push(createPassenger(passenger)))
 
-  contentWrapper.innerHTML = content.join('')
+  loadFirstElements(content);
+  
+  const lazyLoadEvent = createLazyLoading(content)
+
+  window.addEventListener('scroll', lazyLoadEvent);
 };
