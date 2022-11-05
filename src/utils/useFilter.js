@@ -9,7 +9,7 @@ export const useFilter = () => {
   content.innerHTML = '';
 
   if (currentValue === '') {
-    renderContent(passengers)
+    renderContent(passengers);
   } else {
     const filteredData = passengers.filter((passenger) => {
       if (
@@ -23,11 +23,11 @@ export const useFilter = () => {
         !passenger.survived && currentValue.includes('not')
       ) {
         return passenger;
-      }
-    })
+      };
+    });
     
     if (filteredData.length) {
-      renderContent(filteredData)
-    }
-  }
-}
+      renderContent(filteredData);
+    };
+  };
+};

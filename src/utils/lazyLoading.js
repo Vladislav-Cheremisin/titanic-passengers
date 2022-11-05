@@ -6,7 +6,7 @@ let lazyBlockHeight = lazyBlock.offsetHeight;
 const updateLazyBlockInfo = () => {
   lazyBlockPos = lazyBlock.getBoundingClientRect().top + scrollY;
   lazyBlockHeight = lazyBlock.offsetHeight;
-}
+};
 
 const loadFirstElements = (elements) => {
   updateLazyBlockInfo();
@@ -14,20 +14,20 @@ const loadFirstElements = (elements) => {
   while (elements.length && (windowHeight > (lazyBlockPos + lazyBlockHeight))) {
     lazyBlock.innerHTML += elements.shift();
 
-    updateLazyBlockInfo()
-  }
-}
+    updateLazyBlockInfo();
+  };
+};
 
 const createLazyLoading = (elements) => {
   return () => {
-    updateLazyBlockInfo()
+    updateLazyBlockInfo();
 
     if (scrollY + windowHeight > ((lazyBlockPos + lazyBlock.offsetHeight))) {
       if (elements.length) {
         lazyBlock.innerHTML += elements.shift();
-      }
-    }
-  }
-}
+      };
+    };
+  };
+};
 
-export {loadFirstElements, createLazyLoading}
+export {loadFirstElements, createLazyLoading};
