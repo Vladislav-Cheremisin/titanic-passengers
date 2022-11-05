@@ -1,6 +1,6 @@
 # Titanic Passengers App
 
-You can install and start application by using following intructions or just use [https://vladislav-cheremisin.github.io/titanic-passengers/index.html](Deployed version of application) (gh-pages).
+You can install and start application by using following intructions or just use [Deployed version of application](https://vladislav-cheremisin.github.io/titanic-passengers/index.html) (gh-pages).
 ## How to install application:
 
 1. Intall LTS NodeJS version from official website.
