@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   height: 90px;
+  text-align: center;
   background-color: #512da8;
   box-shadow: 0 0 5px #673ab7;
 }
