@@ -12,6 +12,7 @@ export const renderContent = (passengers) => {
 
   if (lazyLoadEvent) {
     window.removeEventListener('scroll', lazyLoadEvent);
+    document.body.removeEventListener('touchmove', lazyLoadEvent);
   };
   
   lazyLoadEvent = createLazyLoading(content);
