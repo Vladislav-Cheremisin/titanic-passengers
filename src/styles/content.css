@@ -91,4 +91,8 @@
   .card {
     width: fit-content;
   }
+
+  .card:hover {
+    transform: scale(1);
+  }
 }
