@@ -72,6 +72,7 @@ const renderContent = (passengers) => {
   lazyLoadEvent = createLazyLoading(content);
 
   window.addEventListener('scroll', lazyLoadEvent);
+  document.body.addEventListener('touchmove', lazyLoadEvent);
 };
 
 ;// CONCATENATED MODULE: ./utils/useFilter.js
