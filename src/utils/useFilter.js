@@ -1,4 +1,4 @@
-import { renderContent } from "./renderContent.js";
+import { renderContent } from './renderContent.js';
 import passengers from '../assets/passengers.json';
 
 const searchInput = document.querySelector('.searchbar__input');
@@ -12,22 +12,41 @@ export const useFilter = () => {
     renderContent(passengers);
   } else {
     const filteredData = passengers.filter((passenger) => {
-      if (
-        passenger.name.toLowerCase().includes(currentValue) ||
-        passenger.gender.toLowerCase().includes(currentValue) && currentValue !== 'male' ||
-        passenger.gender.toLowerCase() === 'male' && currentValue === 'male' ||
-        Math.floor(passenger.age) == currentValue ||
-        currentValue.length > 2 && passenger.ticket.toLowerCase().includes(currentValue) ||
-        passenger.cabin.toLowerCase().split(' ').includes(currentValue) ||
-        passenger.survived && 'survived'.includes(currentValue) ||
-        !passenger.survived && currentValue.includes('not')
-      ) {
+      if (passenger.name.toLowerCase().includes(currentValue)) {
         return passenger;
-      };
+      }
+
+      if (passenger.gender.toLowerCase().includes(currentValue) && currentValue !== 'male') {
+        return passenger;
+      }
+
+      if (passenger.gender.toLowerCase() === 'male' && currentValue === 'male') {
+        return passenger;
+      }
+
+      if (Math.floor(passenger.age) == currentValue) {
+        return passenger;
+      }
+
+      if (currentValue.length > 2 && passenger.ticket.toLowerCase().includes(currentValue)) {
+        return passenger;
+      }
+
+      if (passenger.cabin.toLowerCase().split(' ').includes(currentValue)) {
+        return passenger;
+      }
+
+      if (passenger.survived && 'survived'.includes(currentValue)) {
+        return passenger;
+      }
+
+      if (!passenger.survived && currentValue.includes('not')) {
+        return passenger;
+      }
     });
-    
+
     if (filteredData.length) {
       renderContent(filteredData);
-    };
-  };
+    }
+  }
 };
