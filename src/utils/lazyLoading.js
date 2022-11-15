@@ -1,3 +1,5 @@
+import { content } from './renderContent.js';
+
 const wrapper = document.querySelector('.wrapper');
 const lazyBlock = document.querySelector('._lazy-block');
 const contentHeight = wrapper.offsetHeight + wrapper.getBoundingClientRect().top;
@@ -9,26 +11,24 @@ const updateLazyBlockInfo = () => {
   lazyBlockHeight = lazyBlock.offsetHeight;
 };
 
-const loadFirstElements = (elements) => {
+const loadFirstElements = () => {
   updateLazyBlockInfo();
 
-  while (elements.length && contentHeight > lazyBlockPos + lazyBlockHeight) {
-    lazyBlock.appendChild(elements.shift());
+  while (content.length && contentHeight > lazyBlockPos + lazyBlockHeight) {
+    lazyBlock.appendChild(content.shift());
 
     updateLazyBlockInfo();
   }
 };
 
-const createLazyLoading = (elements) => {
-  return () => {
-    updateLazyBlockInfo();
+const lazyLoadingEvent = () => {
+  updateLazyBlockInfo();
 
-    if (scrollY + contentHeight > lazyBlockPos + lazyBlock.offsetHeight) {
-      if (elements.length) {
-        lazyBlock.appendChild(elements.shift());
-      }
+  if (scrollY + contentHeight > lazyBlockPos + lazyBlock.offsetHeight) {
+    if (content.length) {
+      lazyBlock.appendChild(content.shift());
     }
-  };
+  }
 };
 
-export { loadFirstElements, createLazyLoading };
+export { loadFirstElements, lazyLoadingEvent };

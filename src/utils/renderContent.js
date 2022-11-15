@@ -1,22 +1,15 @@
-import { createPassenger } from "./createPassenger.js";
-import { loadFirstElements, createLazyLoading } from "./lazyLoading.js";
+import { getContentElements } from './getContentElements.js';
+import { loadFirstElements, lazyLoadingEvent } from './lazyLoading.js';
 
-let lazyLoadEvent = null;
+let content = {};
 
-export const renderContent = (passengers) => {
-  let content = [];
+const renderContent = (passengers) => {
+  content = getContentElements(passengers);
 
-  passengers.forEach((passenger) => content.push(createPassenger(passenger)));
+  loadFirstElements();
 
-  loadFirstElements(content);
-
-  if (lazyLoadEvent) {
-    window.removeEventListener('scroll', lazyLoadEvent);
-    document.body.removeEventListener('touchmove', lazyLoadEvent);
-  };
-  
-  lazyLoadEvent = createLazyLoading(content);
-
-  window.addEventListener('scroll', lazyLoadEvent);
-  document.body.addEventListener('touchmove', lazyLoadEvent);
+  window.addEventListener('scroll', lazyLoadingEvent);
+  document.body.addEventListener('touchmove', lazyLoadingEvent);
 };
+
+export { content, renderContent };
