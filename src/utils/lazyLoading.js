@@ -13,7 +13,7 @@ const loadFirstElements = (elements) => {
   updateLazyBlockInfo();
 
   while (elements.length && contentHeight > lazyBlockPos + lazyBlockHeight) {
-    lazyBlock.innerHTML += elements.shift();
+    lazyBlock.appendChild(elements.shift());
 
     updateLazyBlockInfo();
   }
@@ -25,7 +25,7 @@ const createLazyLoading = (elements) => {
 
     if (scrollY + contentHeight > lazyBlockPos + lazyBlock.offsetHeight) {
       if (elements.length) {
-        lazyBlock.innerHTML += elements.shift();
+        lazyBlock.appendChild(elements.shift());
       }
     }
   };
