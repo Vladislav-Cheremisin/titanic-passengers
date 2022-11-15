@@ -1,5 +1,6 @@
-const windowHeight = document.documentElement.clientHeight;
+const wrapper = document.querySelector('.wrapper');
 const lazyBlock = document.querySelector('._lazy-block');
+const contentHeight = wrapper.offsetHeight + wrapper.getBoundingClientRect().top;
 let lazyBlockPos = lazyBlock.getBoundingClientRect().top + scrollY;
 let lazyBlockHeight = lazyBlock.offsetHeight;
 
@@ -11,23 +12,23 @@ const updateLazyBlockInfo = () => {
 const loadFirstElements = (elements) => {
   updateLazyBlockInfo();
 
-  while (elements.length && (windowHeight > (lazyBlockPos + lazyBlockHeight))) {
+  while (elements.length && contentHeight > lazyBlockPos + lazyBlockHeight) {
     lazyBlock.innerHTML += elements.shift();
 
     updateLazyBlockInfo();
-  };
+  }
 };
 
 const createLazyLoading = (elements) => {
   return () => {
     updateLazyBlockInfo();
 
-    if (scrollY + windowHeight > ((lazyBlockPos + lazyBlock.offsetHeight))) {
+    if (scrollY + contentHeight > lazyBlockPos + lazyBlock.offsetHeight) {
       if (elements.length) {
         lazyBlock.innerHTML += elements.shift();
-      };
-    };
+      }
+    }
   };
 };
 
-export {loadFirstElements, createLazyLoading};
+export { loadFirstElements, createLazyLoading };
