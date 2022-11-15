@@ -30,7 +30,7 @@
   border: 2px solid #7c4dff9e;
 }
 
-.card span {
+.card > span {
   padding: 10px;
   padding-left: 20px;
   display: grid;
