@@ -22,4 +22,4 @@ Also application has one test case (just for example), to run it use following c
 ---
 
 ### Thank you for using Titanic Passengers App!
-### Have a good day!
+### Have a good day!!!
